@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 536.59 79.98">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #6a0cf8;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #309;
+      }
+
+      .text {
+        font-family: 'Bold', sans-serif; /* You can change the font family */
+        font-size: 90px; /* Adjust the font size as needed */
+        fill: #6a0cf8; /* Change the text color if needed */
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0" y1="39.99" x2="153.12" y2="39.99" gradientUnits="userSpaceOnUse">
+      <stop offset=".13" stop-color="#6a0cf8"/>
+      <stop offset=".56" stop-color="#fd16b8"/>
+      <stop offset=".97" stop-color="#fdba7f"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="text">E-learning</text>
+    </g>
+  </g>
+</svg>
