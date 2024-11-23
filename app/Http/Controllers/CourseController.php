@@ -76,8 +76,9 @@ class CourseController extends Controller
     {
 
         $course = Course::findOrFail($id);
-        $request->validated();
-        $course->update($request->all());
+        $l=$request->validated();
+
+        $course->update($l);
 
         return redirect()->route('courses.index');
     }

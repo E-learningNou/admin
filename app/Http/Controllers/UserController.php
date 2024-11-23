@@ -14,7 +14,10 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('Pages.students.student');
+        $userCount = Student::count();
+
+        // Pass the user count to the view
+        return view('Pages.Home', compact('userCount'));
     }
 
     /**

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StudentRequest;
-use App\Http\Requests\UpdateRequest;
+use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Course;
 
-class StudentController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
-        $students=Student::get();
-        return view('Pages.students.student',compact('students'));
+        $student=Student::count();
+        $course=Course::count();
+        return view('Pages.Home',compact('student','course'));
     }
 
     /**
@@ -28,7 +28,6 @@ class StudentController extends Controller
     public function create()
     {
         //
-        return view('Pages.students.AddStudent');
     }
 
     /**
@@ -37,12 +36,9 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentRequest $request)
+    public function store(Request $request)
     {
         //
-         $student=Student::create($request->validated());
-
-        return redirect()->route('students.index');
     }
 
     /**
@@ -64,10 +60,6 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-
-        $student=Student::FindOrFail($id);
-
-        return view('Pages.students.edit',compact('student'));
         //
     }
 
@@ -78,22 +70,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-
-
-        $student = Student::findOrFail($id);
-
-        // Validate the request data
-        $validatedData = $request->validated();
-
-        // Prepare an array of fields to update
-        $l=$request->validated();
-        // Update the student with the specified fields
-        $student->update($updateData);
-
-            return redirect()->route('students.index');
-
+        //
     }
 
     /**
@@ -102,10 +81,8 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        $student->delete();
-        return redirect()->route('students.index');
+        //
     }
-
 }

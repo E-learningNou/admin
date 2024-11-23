@@ -60,14 +60,14 @@
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="passwor">Password</label><br>
+                                <label for="password">Password</label><br>
                                 @error('password')
                                 <span class='text-danger'>{{$message}}</span>
                                 @enderror
                                 <input
                                     type="password"
                                     class="form-control"
-                                    id="passwor"
+                                    id="password"
                                     placeholder="Password"
                                     name="password"
                                     required

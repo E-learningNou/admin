@@ -11,7 +11,7 @@
         </div>
         <div class="ms-md-auto py-2 py-md-0">
           <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
-          <a href="#" class="btn btn-primary btn-round">Add Customer</a>
+          <a href="{{route('students.create')}}" class="btn btn-primary btn-round">Add Student</a>
         </div>
       </div>
       <div class="row">
@@ -29,7 +29,8 @@
                 <div class="col col-stats ms-3 ms-sm-0">
                   <div class="numbers">
                     <p class="card-category">Visitors</p>
-                    <h4 class="card-title">1,294</h4>
+
+                    <h4 class="card-title">{{$student}}</h4>
                   </div>
                 </div>
               </div>
@@ -49,8 +50,8 @@
                 </div>
                 <div class="col col-stats ms-3 ms-sm-0">
                   <div class="numbers">
-                    <p class="card-category">Subscribers</p>
-                    <h4 class="card-title">1303</h4>
+                    <p class="card-category">Courses</p>
+                    <h4 class="card-title">{{$course}}</h4>
                   </div>
                 </div>
               </div>

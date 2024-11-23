@@ -26,36 +26,40 @@
                         <div class="card-title">Form Elements</div>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('courses.update', $course->id) }}" method="POST" enctype="multipart/form-data">
+                        dd({{$course->id}});
+                        <form action="{{ route('courses.update',$course->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
+                            @method('PATCH')
                             <div class="form-group">
                                 <label for="ins">Instructor</label><br>
-                                @error('instructor')
+                                @error('Instructor')
                                 <span class='text-danger'>{{$message}}</span>
                                 @enderror
                                 <input
                                     type="text"
                                     class="form-control"
                                     id="ins"
-                                    placeholder="instructor"
-                                    name="instructor"
-                                    required
+                                    placeholder="Instructor"
+                                    name="Instructor"
+                                    value={{old('Instructor', $course->Instructor) }}
+
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="desc">description</label><br>
+                                <label for="des">description</label><br>
                                 @error('description')
                                 <span class='text-danger'>{{$message}}</span>
                                 @enderror
                                 <textarea
 
                                     class="form-control"
-                                    id="desc"
-                                    placeholder="Enter description"
+                                    id="des"
+                                    placeholder="Enter age"
                                     name="description"
+                                    value={{ old('description', $course->description) }}
                                     required
-                                ></textarea>
+                                >
+                                </textarea>
                             </div>
 
                     </div>
@@ -71,3 +75,6 @@
     </div>
 </div>
 @endsection
+
+
+
