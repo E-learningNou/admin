@@ -17,6 +17,7 @@ class StudentController extends Controller
     {
         //
         $students=Student::get();
+
         return view('Pages.students.student',compact('students'));
     }
 
@@ -107,5 +108,6 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('students.index');
     }
+
 
 }

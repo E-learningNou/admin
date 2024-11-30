@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\HomeController;
 use  App\Http\Controllers\CourseController;
+use App\Http\Controllers\Course_StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,8 @@ Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::get('/charts',function(){
     return view('Pages.charts');
 })->name('charts');
+Route::resource('enrolls', Course_StudentController::class);
+//Route::get('/enroll',[Course_StudentController::class,'index'])->name('enroll');
 
 // Route::get('courses/index',[CourseController::class,'index'])->name('courses.index');
 // Route::get('courses/create',[CourseController::class,'create'])->name('courses.create');

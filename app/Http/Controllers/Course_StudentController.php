@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Course;
+use App\Http\Requests\Course_StudentRequest;
 use App\Models\Course_Student;
 
-class HomeController extends Controller
+class Course_StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +17,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $student=Student::count();
-        $course=Course::count();
-        $enrollment=Course_Student::count();
-        return view('Pages.Home',compact('student','course','enrollment'));
+      $enroll=Course_Student::get();
+        return view('Pages.enrollment.AllEnrollments',compact('enroll'));
     }
 
     /**
@@ -29,7 +28,13 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+
+            // Fetch courses and students to populate the form
+            $courses = Course::all();
+            $students = Student::all();
+
+            return view('Pages.enrollment.enroll', compact('courses', 'students'));
+
     }
 
     /**
@@ -38,9 +43,10 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Course_StudentRequest $request)
     {
-        //
+        $enro=Course_Student::create($request->validated());
+        return redirect()->route('enrolls.index');
     }
 
     /**

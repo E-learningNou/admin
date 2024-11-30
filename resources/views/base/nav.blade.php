@@ -102,7 +102,29 @@
                 </div>
               </li>
 
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#enroll">
+                  <i class="fas fa-table"></i>
+                  <p>Enrollment</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="enroll">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{{route('enrolls.create')}}">
+                        <span class="sub-item">Enroll_into_course</span>
+                      </a>
+                    </li>
 
+                    <li>
+                      <a href="{{route('enrolls.index')}}">
+                        <span class="sub-item">All Enrollments</span>
+                      </a>
+                    </li>
+                </ul>
+
+                </div>
+              </li>
 
 
 
