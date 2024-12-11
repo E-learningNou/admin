@@ -1,5 +1,5 @@
 
-        <footer class="footer">
+        <footer class="footer fixed-footer">
             <div class="container-fluid d-flex justify-content-between">
               <nav class="pull-left">
                 <ul class="nav">
@@ -223,6 +223,21 @@
         </div>
         <!-- End Custom template -->
       </div>
+      <style>
+      .fixed-footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #ffffff; /* Adjust as needed */
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+        z-index: 1000; /* Ensure it is above other content */
+    }
+
+    .container-fluid {
+        padding: 10px; /* Adjust padding as needed */
+    }
+</style>
       <!--   Core JS Files   -->
       <script src="{{asset('js/core/jquery-3.7.1.min.js')}}"></script>
       <script src="{{asset('js/core/popper.min.js')}}"></script>

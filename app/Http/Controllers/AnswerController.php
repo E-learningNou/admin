@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CourseRequest;
-use App\Models\Course;
+use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class AnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $course=Course::paginate(2);
-        return view('Pages.courses.AllCourses',compact('course'));
+
     }
 
     /**
@@ -27,7 +25,7 @@ class CourseController extends Controller
     public function create()
     {
         //
-        return view('Pages.courses.AddCourse');
+        return view('Pages.answers.answer');
     }
 
     /**
@@ -36,10 +34,9 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CourseRequest $request)
+    public function store(Request $request)
     {
-        $course=Course::create($request->validated());
-        return  redirect()->route('courses.index');
+        //
     }
 
     /**
@@ -61,8 +58,7 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $course=Course::findOrFail($id);
-        return view('Pages.courses.courseEdit',compact('course'));
+        //
     }
 
     /**
@@ -72,15 +68,9 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CourseRequest $request, $id)
+    public function update(Request $request, $id)
     {
-
-        $course = Course::findOrFail($id);
-        $l=$request->validated();
-
-        $course->update($l);
-
-        return redirect()->route('courses.index');
+        //
     }
 
     /**
@@ -89,11 +79,8 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        $course->delete();
-        return redirect()->route('courses.index');
-
         //
     }
 }

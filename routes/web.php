@@ -5,7 +5,9 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\HomeController;
 use  App\Http\Controllers\CourseController;
 use App\Http\Controllers\Course_StudentController;
-
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +20,9 @@ use App\Http\Controllers\Course_StudentController;
 */
 
 
-Route::get('/home', function () {
-    return view('Pages.Home');
-})->name('home');
+// Route::get('/home', function () {
+//     return view('Pages.Home');
+// })->name('home');
 // Route::get('students/index',[StudentController::class,'index'])->name('students.index');
 // Route::get('students/create',[StudentController::class,'create'])->name('students.create');
 // Route::post('/students',[StudentController::class,'store'])->name('students.store');
@@ -33,6 +35,9 @@ Route::get('/charts',function(){
     return view('Pages.charts');
 })->name('charts');
 Route::resource('enrolls', Course_StudentController::class);
+Route::resource('quizes',QuizController::class);
+Route::resource('questions',QuestionController::class);
+Route::resource('answers', AnswerController::class);
 //Route::get('/enroll',[Course_StudentController::class,'index'])->name('enroll');
 
 // Route::get('courses/index',[CourseController::class,'index'])->name('courses.index');

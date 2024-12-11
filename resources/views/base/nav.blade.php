@@ -1,3 +1,4 @@
+
 <body>
     <div class="wrapper">
       <!-- Sidebar -->
@@ -125,7 +126,27 @@
 
                 </div>
               </li>
-
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#quiz">
+                  <i class="fas fa-table"></i>
+                  <p>Quizes</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="quiz">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{{route('quizes.create')}}">
+                        <span class="sub-item">Add Quiz</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{route('quizes.index')}}">
+                        <span class="sub-item"> All Quizes</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
 
 
 
