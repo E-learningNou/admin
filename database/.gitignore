@@ -1,1 +1,10 @@
 *.sqlite*
+<<<<<<< HEAD
+=======
+/vendor/
+/node_modules/
+/.env
+/.vscode
+/.idea
+*.log
+>>>>>>> front/main

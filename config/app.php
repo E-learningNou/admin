@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+<<<<<<< HEAD
+=======
+use Illuminate\Support\ServiceProvider;
+>>>>>>> front/main
 
 return [
 
@@ -140,7 +144,11 @@ return [
 
     'maintenance' => [
         'driver' => 'file',
+<<<<<<< HEAD
         // 'store'  => 'redis',
+=======
+        // 'store' => 'redis',
+>>>>>>> front/main
     ],
 
     /*
@@ -154,6 +162,7 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'providers' => [
 
         /*
@@ -182,6 +191,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+=======
+    'providers' => ServiceProvider::defaultProviders()->merge([
+>>>>>>> front/main
         /*
          * Package Service Providers...
          */
@@ -194,8 +206,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
 
     ],
+=======
+    ])->toArray(),
+>>>>>>> front/main
 
     /*
     |--------------------------------------------------------------------------
@@ -209,7 +225,11 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+<<<<<<< HEAD
         // 'ExampleClass' => App\Example\ExampleClass::class,
+=======
+        // 'Example' => App\Facades\Example::class,
+>>>>>>> front/main
     ])->toArray(),
 
 ];

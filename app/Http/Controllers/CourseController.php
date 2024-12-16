@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 
 use App\Http\Requests\CourseRequest;
 use App\Models\Course;
@@ -24,11 +25,27 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+=======
+use App\Models\Course;
+use App\Http\Requests\CourseRequest;
+use Illuminate\Http\Request;
+
+
+class CourseController extends Controller
+{
+    //
+        public function index()
+    {
+        $courses = Course::where('available', true)->get();
+        return view('front.pages.courses', compact('courses'));
+    }
+>>>>>>> front/main
     public function create()
     {
         //
         return view('Pages.courses.AddCourse');
     }
+<<<<<<< HEAD
 
     /**
      * Store a newly created resource in storage.
@@ -36,12 +53,15 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+=======
+>>>>>>> front/main
     public function store(CourseRequest $request)
     {
         $course=Course::create($request->validated());
         return  redirect()->route('courses.index');
     }
 
+<<<<<<< HEAD
     /**
      * Display the specified resource.
      *
@@ -59,11 +79,22 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+=======
+
+    // Show details of a single course
+    public function show($id)
+    {
+        $course = Course::findOrFail($id);
+        return view('courses.show', compact('course'));
+    }
+
+>>>>>>> front/main
     public function edit($id)
     {
         $course=Course::findOrFail($id);
         return view('Pages.courses.courseEdit',compact('course'));
     }
+<<<<<<< HEAD
 
     /**
      * Update the specified resource in storage.
@@ -72,6 +103,8 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+=======
+>>>>>>> front/main
     public function update(CourseRequest $request, $id)
     {
 
@@ -83,12 +116,15 @@ class CourseController extends Controller
         return redirect()->route('courses.index');
     }
 
+<<<<<<< HEAD
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+=======
+>>>>>>> front/main
     public function destroy(Course $course)
     {
         $course->delete();
