@@ -7,6 +7,8 @@ use App\Models\Student;
 use App\Models\Course;
 use App\Http\Requests\Course_StudentRequest;
 use App\Models\Course_Student;
+use Illuminate\Support\Facades\Auth;
+
 
 class Course_StudentController extends Controller
 {
@@ -30,10 +32,16 @@ class Course_StudentController extends Controller
     {
 
             // Fetch courses and students to populate the form
+
             $courses = Course::all();
             $students = Student::all();
-
+           if(Auth::user()->role =='admin'){
             return view('Pages.enrollment.enroll', compact('courses', 'students'));
+           }
+           elseif(Auth::use()->role =='user'){
+            return view(' front.pages.studentregester', compact('students', 'courses'));
+
+           }
 
     }
 
@@ -46,7 +54,15 @@ class Course_StudentController extends Controller
     public function store(Course_StudentRequest $request)
     {
         $enro=Course_Student::create($request->validated());
-        return redirect()->route('enrolls.index');
+        if(Auth::user()->role =='admin'){
+            return redirect()->route('enrolls.index');
+        }
+        elseif(Auth::user()->role == 'user')
+        {
+            return redirect()->route('lesson.show');
+        }
+
+
     }
 
     /**

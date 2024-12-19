@@ -17,6 +17,7 @@
                 <th>Course Name</th>
                 <th>Description</th>
                 <th>Instructor</th>
+                <th>image_url</th>
                 <th>Start date</th>
                 <th>Add Quiz</th>
                 <th>Action</th>
@@ -28,6 +29,7 @@
                                  <td>{{$cour->name}}</td>
                                  <td>{{$cour->description}}</td>
                                  <td>{{$cour->instructor}}</td>
+                                 <td>{{$cour->image_url}}</td>
                                  <td>{{$cour->created_at}}</td>
                                  <td> <button
                                     type="submit"

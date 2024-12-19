@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('course__students')){
         Schema::create('course__students', function (Blueprint $table) {
             $table->id();
             $table->foreignId('course_id')->constrained('courses')->cascadeOnDelete();
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string('CV_link');
             $table->timestamps();
         });
+    }
     }
 
     /**

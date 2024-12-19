@@ -73,7 +73,17 @@
                                      required
                                  ></textarea>
                              </div>
-
+                             <div class="form-group">
+                                <label for="image_url">Image_url</label><br>
+                                @error('image_url')
+                                <span class='text-danger'>{{$message}}</span>
+                                @enderror
+                                <input
+                                type="url"
+                                name='image_url'
+                                id="image_url"
+                                >
+                            </div>
 
                      </div>
                      <div class="card-action">

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 * text=auto
-=======
-* text=auto eol=lf
->>>>>>> front/main
 
 *.blade.php diff=html
 *.css diff=css
@@ -13,13 +9,3 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
-<<<<<<< HEAD
-=======
-# Set default behavior to automatically normalize line endings.
-* text=auto
-
-# Explicitly tell Git to handle JavaScript, CSS, and JSON files as text.
-*.js text
-*.css text
-*.json text
->>>>>>> front/main

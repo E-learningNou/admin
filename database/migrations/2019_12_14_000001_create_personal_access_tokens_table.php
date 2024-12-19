@@ -8,11 +8,8 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-<<<<<<< HEAD
      *
      * @return void
-=======
->>>>>>> front/main
      */
     public function up()
     {
@@ -27,7 +24,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-<<<<<<< HEAD
 
     /**
      * Reverse the migrations.
@@ -35,12 +31,6 @@ return new class extends Migration
      * @return void
      */
     public function down()
-=======
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
->>>>>>> front/main
     {
         Schema::dropIfExists('personal_access_tokens');
     }

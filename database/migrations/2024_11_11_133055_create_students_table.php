@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('students')){
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->string('image');
             $table->timestamps();
         });
+    }
     }
 
     /**

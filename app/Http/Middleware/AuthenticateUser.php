@@ -4,8 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class Redirect
+
+class AuthenticateUser
 {
     /**
      * Handle an incoming request.
@@ -16,12 +18,10 @@ class Redirect
      */
     public function handle(Request $request, Closure $next)
     {
-             if($request->is('/')){
-                return redirect('/login');
-             }
+        if(!Auth::check()){
+          return redirect()->route('login');
 
+        }
         return $next($request);
     }
-
-
 }

@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('courses')){
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -18,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+    }
     }
 
     /**

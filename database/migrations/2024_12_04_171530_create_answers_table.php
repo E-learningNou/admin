@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        if(!Schema::hasTable('answers')){
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('question_id')->constrained('questions')->cascadeOnDelete();
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->boolean('is_correct');
             $table->timestamps();
         });
+    }
     }
 
     /**

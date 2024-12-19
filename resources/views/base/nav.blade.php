@@ -6,7 +6,7 @@
         <div class="sidebar-logo">
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
-            <a href="{{route('home')}}" class="logo">
+            <a href="{{route('adminhome')}}" class="logo">
               <img
                 src="{{asset('img/kaiadmin/logo_light.svg')}}"
                 alt="navbar brand"
@@ -45,7 +45,7 @@
                 <div class="collapse" id="dashboard">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{route('home')}}">
+                      <a href="{{route('adminhome')}}">
                         <span class="sub-item">Dashboard 1</span>
                       </a>
                     </li>
@@ -165,7 +165,7 @@
           <div class="main-header-logo">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
-              <a href="{{route('home')}}" class="logo">
+              <a href="{{route('adminhome')}}" class="logo">
                 <img
                   src="{{asset('img/kaiadmin/logo_light.svg')}}"
                   alt="navbar brand"

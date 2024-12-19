@@ -27,7 +27,7 @@
                             </div>
                             <div style="text-align: center;" class="row mb-3">
             <!-- Email Field -->
-            <label class="col-md-4 col-form-label text-md-end" for="email">Email </label>
+                              <label class="col-md-4 col-form-label text-md-end" for="email">Email </label>
                                 <div class="col-md-6">
                                     <input   class="form-control @error('password') is-invalid @enderror" type="email" id="email" name="email" value="{{ old('email') }}" required><br>
                                     @error('email')
@@ -36,21 +36,17 @@
                                 </div>
                             </div>
                             <div style="text-align: center;" class="row mb-3">
-            <label style="padding-left:10;" class="col-md-4 col-form-label text-md-end" for="Select Course:">Select Course: </label>
-                                <div   style="    width: 254px;  height: 35px;" class="col-md-6">
-                                        <select    style="    width: 100%;  height: 35px;"  class="col-md-20 w-100" id="course" name="course" required>
-                <option value="Learing English" {{ old('course') == 'Learing English' ? 'selected' : '' }}>Learing English</option>
-                <option value="Marketing" {{ old('course') == 'Marketing' ? 'selected' : '' }}>Marketing</option>
-                <option value="Content Writing" {{ old('course') == 'Content Writing' ? 'selected' : '' }}>Content Writing</option>
-                <option value="Logo Design" {{ old('course') == 'Logo Design' ? 'selected' : '' }}>Logo Design</option>
-                <option value="UI/UX" {{ old('course') == 'UI/UX' ? 'selected' : '' }}>UI/UX</option>
-                <option value="Animation" {{ old('course') == 'Animation' ? 'selected' : '' }}>Animation</option>
-                <option value="Flutter" {{ old('course') == 'Flutter' ? 'selected' : '' }}>Flutter</option>
-                <option value="Web Development" {{ old('course') == 'Web Development' ? 'selected' : '' }}>Web Development</option>
-            </select>
-                                    @error('Select Course:')
-                                        <span class="invalid-feedback  alert alert-danger" role="alert">{{ $message }}</span>
-                                    @enderror
+                                <label style="padding-left:10;" class="col-md-4 col-form-label text-md-end" for="course_id">Select Course: </label>
+                                <div   style="width: 254px;  height: 35px;" class="col-md-6">
+
+
+                                        <select style="width: 100%;  height: 35px;"  class="col-md-20 w-100" id="course_id" name="course_id" required>
+                                            <option value="" disabled selected>Select a Student</option>
+                                    @foreach ($courses as $cours )
+                                            <option value={{$cours->id}}>{{$cours->name}}</option>
+                                            @endforeach
+                                               </select>
+
                                 </div>
                             </div>
                             <div text-align: center; class="row mb-3">

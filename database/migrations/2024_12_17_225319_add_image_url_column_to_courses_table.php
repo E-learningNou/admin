@@ -8,19 +8,22 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->string('available');
-            //
+            $table->string('image_url');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::table('courses', function (Blueprint $table) {
             //
