@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\QuizRequest;
-use App\Models\Quiz;
-use App\Models\Course;
-use App\Models\Question;
-class QuizController extends Controller
+use App\Models\User;
+use App\Http\Requests\AdminRequest;
+
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $quiz=Quiz::paginate(5);
-        return view('Pages.quizes.all',compact('quiz'));
+        //
     }
 
     /**
@@ -27,9 +25,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        $courses=Course::get();
-        return view('Pages.quizes.add',compact('courses'));
-        //
+        return view('Pages.admin.Alladmin');
     }
 
     /**
@@ -38,14 +34,10 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QuizRequest $request)
+    public function store(AdminRequest $request)
     {
-        //
-        $quiz=Quiz::create($request->validated());
-        //dd($quiz->id);
-       session(['quiz_id'=> $quiz->id]);
-
-        return  redirect()->route('questions.index');
+        $admin= User::create($request->validated());
+        return redirect()->route('adminhome');
     }
 
     /**
@@ -56,9 +48,9 @@ class QuizController extends Controller
      */
     public function show($id)
     {
-        $quiz=Quiz::where('course_id',$id)->get();
-        return view('pages.quizes.all',compact('quiz'));
+        //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -91,10 +83,5 @@ class QuizController extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function all($id){
-        $quizs=Quiz::where('id',$id)->get();
-        $questions=Question::where('quiz_id',$id)->get();
-        return view('Pages.quizes.quiz',compact('quizs','questions'));
     }
 }

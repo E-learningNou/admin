@@ -1,5 +1,6 @@
 
 <body>
+
     <div class="wrapper">
       <!-- Sidebar -->
       <div class="sidebar" data-background-color="dark">
@@ -147,7 +148,27 @@
                   </ul>
                 </div>
               </li>
-
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#register">
+                  <i class="fas fa-table"></i>
+                  <p>Admin_Users</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="register">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{{route('register.store')}}">
+                        <span class="sub-item">Add Admin</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{route('register.index')}}">
+                        <span class="sub-item"> All Admins</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
 
 
 
@@ -240,7 +261,9 @@
                     class="dropdown-menu messages-notif-box animated fadeIn"
                     aria-labelledby="messageDropdown"
                   >
+
                     <li>
+
                       <div
                         class="dropdown-title d-flex justify-content-between align-items-center"
                       >
@@ -251,62 +274,22 @@
                     <li>
                       <div class="message-notif-scroll scrollbar-outer">
                         <div class="notif-center">
-                          <a href="#">
-                            <div class="notif-img">
-                              <img
-                                src="{{asset('img/jm_denis.jpg')}}"
-                                alt="Img Profile"
-                              />
-                            </div>
-                            <div class="notif-content">
-                              <span class="subject">Jimmy Denis</span>
-                              <span class="block"> How are you ? </span>
-                              <span class="time">5 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-img">
-                              <img
-                                src="{{asset('img/chadengle.jpg')}}"
 
-                                alt="Img Profile"
-                              />
-                            </div>
-                            <div class="notif-content">
-                              <span class="subject">Chad</span>
-                              <span class="block"> Ok, Thanks ! </span>
-                              <span class="time">12 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-img">
-                              <img
-                                src="{{asset('img/mlane.jpg')}}"
-                                alt="Img Profile"
-                              />
-                            </div>
-                            <div class="notif-content">
-                              <span class="subject">Jhon Doe</span>
-                              <span class="block">
-                                Ready for the meeting today...
-                              </span>
-                              <span class="time">12 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-img">
-                              <img
-                                src="{{asset('img/talha.jpg')}}"
-                                alt="Img Profile"
-                              />
-                            </div>
-                            <div class="notif-content">
-                              <span class="subject">Talha</span>
-                              <span class="block"> Hi, Apa Kabar ? </span>
-                              <span class="time">17 minutes ago</span>
-                            </div>
-                          </a>
+                            @foreach ($message as $messag )
+                            <a href="#">
+
+                                <div class="notif-content">
+                                  <span class="subject"> {{$messag->name}}</span>
+                                  <span class="block">{{$messag->message}}</span>
+                                  <span class="time">{{$messag->created_at}}</span>
+                                </div>
+                              </a>
+                            @endforeach
+
+
+
                         </div>
+
                       </div>
                     </li>
                     <li>
@@ -316,6 +299,7 @@
                     </li>
                   </ul>
                 </li>
+                <li> <a href='{{route('home')}}'><i class="fas fa-home"></i></a></li>
                 <li class="nav-item topbar-icon dropdown hidden-caret">
                   <a
                     class="nav-link dropdown-toggle"
@@ -327,7 +311,7 @@
                     aria-expanded="false"
                   >
                     <i class="fa fa-bell"></i>
-                    <span class="notification">4</span>
+                    {{-- <span class="notification"></span> --}}
                   </a>
                   <ul
                     class="dropdown-menu notif-box animated fadeIn"
@@ -335,7 +319,8 @@
                   >
                     <li>
                       <div class="dropdown-title">
-                        You have 4 new notification
+
+
                       </div>
                     </li>
                     <li>
@@ -346,44 +331,18 @@
                               <i class="fa fa-user-plus"></i>
                             </div>
                             <div class="notif-content">
-                              <span class="block"> New user registered </span>
-                              <span class="time">5 minutes ago</span>
+
+
+
+                                {{-- @foreach($notification as $notificatio)
+
+
+                              <span class="block">{{ $notificatio->data['message'] }} </span>
+                              <span class="time">{{ $notificatio->created_at }}</span>
+                              @endforeach --}}
                             </div>
                           </a>
-                          <a href="#">
-                            <div class="notif-icon notif-success">
-                              <i class="fa fa-comment"></i>
-                            </div>
-                            <div class="notif-content">
-                              <span class="block">
-                                Rahmad commented on Admin
-                              </span>
-                              <span class="time">12 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-img">
-                              <img
-                                src="{{asset('img/profile2.jpg')}}"
-                                alt="Img Profile"
-                              />
-                            </div>
-                            <div class="notif-content">
-                              <span class="block">
-                                Reza send messages to you
-                              </span>
-                              <span class="time">12 minutes ago</span>
-                            </div>
-                          </a>
-                          <a href="#">
-                            <div class="notif-icon notif-danger">
-                              <i class="fa fa-heart"></i>
-                            </div>
-                            <div class="notif-content">
-                              <span class="block"> Farrah liked Admin </span>
-                              <span class="time">17 minutes ago</span>
-                            </div>
-                          </a>
+
                         </div>
                       </div>
                     </li>
@@ -394,75 +353,7 @@
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item topbar-icon dropdown hidden-caret">
-                  <a
-                    class="nav-link"
-                    data-bs-toggle="dropdown"
-                    href="#"
-                    aria-expanded="false"
-                  >
-                    <i class="fas fa-layer-group"></i>
-                  </a>
-                  <div class="dropdown-menu quick-actions animated fadeIn">
-                    <div class="quick-actions-header">
-                      <span class="title mb-1">Quick Actions</span>
-                      <span class="subtitle op-7">Shortcuts</span>
-                    </div>
-                    <div class="quick-actions-scroll scrollbar-outer">
-                      <div class="quick-actions-items">
-                        <div class="row m-0">
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div class="avatar-item bg-danger rounded-circle">
-                                <i class="far fa-calendar-alt"></i>
-                              </div>
-                              <span class="text">Calendar</span>
-                            </div>
-                          </a>
 
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div class="avatar-item bg-info rounded-circle">
-                                <i class="fas fa-file-excel"></i>
-                              </div>
-                              <span class="text">Reports</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div
-                                class="avatar-item bg-success rounded-circle"
-                              >
-                                <i class="fas fa-envelope"></i>
-                              </div>
-                              <span class="text">Emails</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div
-                                class="avatar-item bg-primary rounded-circle"
-                              >
-                                <i class="fas fa-file-invoice-dollar"></i>
-                              </div>
-                              <span class="text">Invoice</span>
-                            </div>
-                          </a>
-                          <a class="col-6 col-md-4 p-0" href="#">
-                            <div class="quick-actions-item">
-                              <div
-                                class="avatar-item bg-secondary rounded-circle"
-                              >
-                                <i class="fas fa-credit-card"></i>
-                              </div>
-                              <span class="text">Payments</span>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
 
                 <li class="nav-item topbar-user dropdown hidden-caret">
                   <a
@@ -472,49 +363,37 @@
                     aria-expanded="false"
                   >
                     <div class="avatar-sm">
-                      <img
-                        src="{{asset('img/profile.jpg')}}"
-                        alt="..."
-                        class="avatar-img rounded-circle"
-                      />
+
                     </div>
                     <span class="profile-username">
                       <span class="op-7">Hi,</span>
-                      <span class="fw-bold">Hizrian</span>
+                      <span class="fw-bold">{{$use->name}}</span>
                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-user animated fadeIn">
                     <div class="dropdown-user-scroll scrollbar-outer">
                       <li>
                         <div class="user-box">
-                          <div class="avatar-lg">
-                            <img
-                              src="{{asset('img/profile.jpg')}}"
-                              alt="image profile"
-                              class="avatar-img rounded"
-                            />
-                          </div>
+
                           <div class="u-text">
-                            <h4>Hizrian</h4>
-                            <p class="text-muted">hello@example.com</p>
-                            <a
-                              href="profile.html"
-                              class="btn btn-xs btn-secondary btn-sm"
-                              >View Profile</a
-                            >
+
+                            <h4>{{$use->name}}</h4>
+
+                            <p class="text-muted">{{$use->email}}</p>
+
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">My Profile</a>
-                        <a class="dropdown-item" href="#">My Balance</a>
-                        <a class="dropdown-item" href="#">Inbox</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Account Setting</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
-                      </li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>                      </li>
                     </div>
                   </ul>
                 </li>

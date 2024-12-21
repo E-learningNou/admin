@@ -19,7 +19,10 @@ class Course_StudentController extends Controller
      */
     public function index()
     {
-      $enroll=Course_Student::get();
+      $enroll=Course_Student::join('courses','course__students.course_id','=','courses.id')
+      ->join('students','course__students.student_id','=','students.id')
+      ->select('courses.name as course','students.name as student','course__students.*')->get();
+
         return view('Pages.enrollment.AllEnrollments',compact('enroll'));
     }
 
@@ -35,13 +38,17 @@ class Course_StudentController extends Controller
 
             $courses = Course::all();
             $students = Student::all();
+
            if(Auth::user()->role =='admin'){
+
             return view('Pages.enrollment.enroll', compact('courses', 'students'));
            }
-           elseif(Auth::use()->role =='user'){
-            return view(' front.pages.studentregester', compact('students', 'courses'));
+
+           else{
+            return view('front.pages.studentregester', compact('students', 'courses'));
 
            }
+
 
     }
 
@@ -105,8 +112,9 @@ class Course_StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Course_Student $enroll)
     {
-        //
+         $enroll->delete();
+         return  redirect()->route('enrolls.index');
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Course;
 use App\Models\Course_Student;
+use App\Models\User;
+use App\Models\Contact;
 
 class HomeController extends Controller
 {
@@ -16,10 +18,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user=User::where('role','admin')->count();
         $student=Student::count();
         $course=Course::count();
         $enrollment=Course_Student::count();
-        return view('Pages.Home',compact('student','course','enrollment'));
+        return view('Pages.Home',compact('student','course','enrollment','user'));
     }
 
     /**

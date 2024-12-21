@@ -7,10 +7,10 @@
       >
         <div>
           <h3 class="fw-bold mb-3">Dashboard</h3>
-          <h6 class="op-7 mb-2">Free Bootstrap 5 Admin Dashboard</h6>
+          <h6 class="op-7 mb-2">Survey around Our Website</h6>
         </div>
         <div class="ms-md-auto py-2 py-md-0">
-          <a href="#" class="btn btn-label-info btn-round me-2">Manage</a>
+
           <a href="{{route('students.create')}}" class="btn btn-primary btn-round">Add Student</a>
         </div>
       </div>
@@ -28,9 +28,9 @@
                 </div>
                 <div class="col col-stats ms-3 ms-sm-0">
                   <div class="numbers">
-                    <p class="card-category">Visitors</p>
+                    <p class="card-category">Admins</p>
 
-                    <h4 class="card-title">{{$student}}</h4>
+                    <h4 class="card-title">{{$user}}</h4>
                   </div>
                 </div>
               </div>
@@ -50,8 +50,8 @@
                 </div>
                 <div class="col col-stats ms-3 ms-sm-0">
                   <div class="numbers">
-                    <p class="card-category">Courses</p>
-                    <h4 class="card-title">{{$course}}</h4>
+                    <p class="card-category">Student</p>
+                    <h4 class="card-title">{{$student}}</h4>
                   </div>
                 </div>
               </div>
@@ -92,8 +92,8 @@
                 </div>
                 <div class="col col-stats ms-3 ms-sm-0">
                   <div class="numbers">
-                    <p class="card-category">Order</p>
-                    <h4 class="card-title">576</h4>
+                    <p class="card-category">Courses</p>
+                    <h4 class="card-title">{{$course}}</h4>
                   </div>
                 </div>
               </div>

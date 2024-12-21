@@ -15,23 +15,25 @@
             <thead>
               <tr>
                 <th>Enrollment_id</th>
-                <th>Course ID</th>
-                <th>Student ID</th>
+                <th>Course</th>
+                <th>Student</th>
                 <th>Start date</th>
                 <th>Action</th>
               </tr>
 
             </thead>
              <tbody>
+
    <tr>                      @foreach ($enroll as $enrol )
+                                   dd({{$enrol}});
                                  <td>{{$enrol->id}}</td>
-                                 <td>{{$enrol->course_id}}</td>
-                                 <td>{{$enrol->student_id}}</td>
+                                 <td>{{$enrol->course}}</td>
+                                 <td>{{$enrol->student}}</td>
                                  <td>{{$enrol->created_at}}</td>
 
 
                             <td>
-                                {{-- <form action="{{route('courses.destroy',$cour->id)}}" method="POST">
+                                <form action="{{route('enrolls.destroy',$enrol->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                       <td>
@@ -45,20 +47,8 @@
                                       >
                                                <i class="fa fa-times"></i>
                                              </button>
-                                </form> --}}
-                                           {{-- <a href="{{ route('courses.edit', $cour->id)}}"> --}}
+                                </form>
 
-                                      <button
-                                        type="submit"
-                                        data-bs-toggle="tooltip"
-                                        title=""
-                                        class="btn btn-link btn-danger"
-                                        data-original-title="Edit Task"
-                                      >
-                                        <i class="fa fa-edit"></i>
-                                      </button>
-                                    </a>
-                                    </div>
                                 </td>
                             </tr>
                              @endforeach

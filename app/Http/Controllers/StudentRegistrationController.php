@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Student;
+use App\Models\User;
 use App\Models\Course;
 
 class StudentRegistrationController extends Controller
 {
     public function index()
     {
-        $students = Student::all();
+        $users = User::all();
         $courses = Course::all();
-        return view(' front.pages.studentregester', compact('students', 'courses'));
+        return view('front.pages.studentregester', compact('users', 'courses'));
     }
 
     public function register(Request $request)
@@ -22,11 +22,11 @@ class StudentRegistrationController extends Controller
             'course_id' => 'required|exists:courses,id',
         ]);
 
-        $student = Student::find($request->student_id);
+        $user = User::find($request->student_id);
         $course = Course::find($request->course_id);
 
         // Enroll student in course
-        $student->courses()->attach($course);
+        $user->courses()->attach($course);
 
         return redirect()->back()->with('success', 'Student enrolled in course successfully!');
     }

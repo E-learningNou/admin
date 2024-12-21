@@ -11,7 +11,7 @@
                     <input type="hidden" name="question_id" value="{{ session('question_id') }}">
 
                     @for ($i = 1; $i <=$questionn; $i++)
-                        <div class="form-group">
+                        {{-- <div class="form-group"> --}}
                             <label for="Answer{{ $i }}">Answer  {{ $i }}</label>
                             @error('name') <!-- Adjusted error handling -->
                                <span class='text-danger'>{{ $message }}</span>

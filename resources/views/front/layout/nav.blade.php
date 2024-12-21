@@ -22,7 +22,7 @@
                 </div>
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <i class="far fa-envelope-open text-primary me-2"></i>
-                    <p class="m-0">info@example.com</p>
+                    <p class="m-0">nour301020@gmail.com</p>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/eraasoft?mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
@@ -69,9 +69,9 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            @if (Route::has('register.index'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register.index') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else

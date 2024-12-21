@@ -1,20 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\HomeController;
-use  App\Http\Controllers\CourseController;
-use App\Http\Controllers\Course_StudentController;
-use App\Http\Controllers\QuizController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\AnswerController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\StudentRegistrationController;
-use App\Http\Controllers\LessonController;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\{StudentController,
+ HomeController,
+ CourseController,
+ Course_StudentController,
+ QuizController,
+ QuestionController,
+ AnswerController,
+ AboutController,
+ ContactController,
+ RegisterController,
+ LoginController,
+ StudentRegistrationController,
+ LessonController,
+ MainController,
+ AdminController};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,7 @@ Route::get('/charts',function(){
 })->name('charts');
 Route::resource('enrolls', Course_StudentController::class);
 Route::resource('quizes',QuizController::class);
+Route::Post('/quizes/{id}',[QuizController::class,'all'])->name('all');
 Route::resource('questions',QuestionController::class);
 Route::resource('answers', AnswerController::class);
 //Route::get('/enroll',[Course_StudentController::class,'index'])->name('enroll');
@@ -64,8 +66,8 @@ Route::resource('answers', AnswerController::class);
     Route::get("/about", [AboutController::class,"index"])->middleware('authuser');
     Route::get("/contact", [ContactController::class,"show"])->name("contact")->middleware('authuser');
     Route::post("/contact_us", [ContactController::class,"store"])->name("contact.store");
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-    Route::post('/register', [RegisterController::class, 'register'])->name('register');
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.index');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -75,6 +77,7 @@ Route::resource('answers', AnswerController::class);
     Route::post('/studentregister', [StudentRegistrationController::class, 'register'])->name('studentregister');
     Route::get('/lesson/{id}', [LessonController::class, 'show'])->name('lesson.show');
     Route::get('/lesson ', [LessonController::class, 'index'])->name('lesson.index');
+    Route::resource('admins', AdminController::class);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

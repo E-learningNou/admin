@@ -31,7 +31,10 @@
                                  <td>{{$cour->instructor}}</td>
                                  <td>{{$cour->image_url}}</td>
                                  <td>{{$cour->created_at}}</td>
-                                 <td> <button
+                                 <td>
+                                    <form action='{{route('quizes.create')}}' mathod='POST'>
+                                        @csrf
+                                    <button
                                     type="submit"
                                     data-bs-toggle="tooltip"
                                      title=""
@@ -39,6 +42,7 @@
                                       data-original-title="Remove">
                                     <i class="fa fa-check"></i></i>
                                   </button>
+                                </form>
                                     </td>
 
 

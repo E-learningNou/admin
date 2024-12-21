@@ -57,7 +57,7 @@ class QuestionController extends Controller
            ] );
         }
 
-       return views('Pages.answers.answer',compact('questionn'));
+       return redirect()->route('quizes.index');
     }
 
     /**

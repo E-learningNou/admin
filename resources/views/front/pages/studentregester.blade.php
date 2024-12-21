@@ -1,7 +1,7 @@
 <!-- resources/views/student/register.blade.php -->
     @extends('front.app')
     @section('content')
-    <h1 class="text-center" >Student Course Registration</h1>
+     <h1 class="text-center" >Student Course Registration</h1>
     <!-- Success message -->
 
     <div class="container">
@@ -11,13 +11,13 @@
                     <div class="card-header"></div>
                     <div class="card-body">
         <!-- Registration Form -->
-        <form style="text-align:left; "  action="{{ route('lesson.index') }}" method="POST">
+        <form style="text-align:left;"  action="{{route('courses.index')}}" method="POST">
             @csrf
 
                             <div  class="row mb-3">
-                            <label  class="col-md-4 col-form-label text-md-end" for="name">Name</label>
+                            <label  class="col-md-4 col-form-label text-md-end" for="name" hidden>Name</label>
                                 <div class="col-md-3 mb-3"   style="    width: 254px;  height: 35px;">
-                                <input  style="width:100%;     height: 35px;" type="text" id="name" name="name" value="{{ old('name') }}" required><br>
+                                <input  style="width:100%;     height: 35px;" type="text" id="name" name="name" value="{{$use->name}}" required hidden><br>
                                     @error('name')
                                         <span class="invalid-feedback alert alert-danger" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -27,9 +27,9 @@
                             </div>
                             <div style="text-align: center;" class="row mb-3">
             <!-- Email Field -->
-                              <label class="col-md-4 col-form-label text-md-end" for="email">Email </label>
+                              <label class="col-md-4 col-form-label text-md-end" for="email" hidden>Email </label>
                                 <div class="col-md-6">
-                                    <input   class="form-control @error('password') is-invalid @enderror" type="email" id="email" name="email" value="{{ old('email') }}" required><br>
+                                    <input   class="form-control @error('password') is-invalid @enderror" type="email" id="email" name="email" value="{{$use->email}}" required hidden ><br>
                                     @error('email')
                                         <span class="invalid-feedback  alert alert-danger" role="alert">{{ $message }}</span>
                                     @enderror

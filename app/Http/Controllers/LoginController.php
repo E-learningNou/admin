@@ -12,7 +12,6 @@ class LoginController extends Controller
     // Show login form
     public function showLoginForm()
     {
-
         return view('auth.login');
     }
 
@@ -25,27 +24,26 @@ class LoginController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-            if ($validator->fails()) {
-                return redirect()->route('login')
-                                ->withErrors($validator)
-                                ->withInput();
-            }
+        if ($validator->fails()) {
+            return redirect()->route('login')
+                             ->withErrors($validator)
+                             ->withInput();
+        }
 
         // Attempt to log the user in
         if (Auth::attempt($request->only('email', 'password'))) {
-            if(Auth::user()->role =='admin'){
-                return redirect()->route('adminhome');
-            }
-            else{
             // Authentication passed
-            return redirect()->route('home');
-        }
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('adminhome');
+            } elseif(Auth::user()->role == 'user') {
+                return redirect()->route('home');
+            }
         }
 
         // Authentication failed
         return redirect()->route('login')->withErrors(['email' => 'Invalid credentials']);
     }
-    //
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -56,10 +54,9 @@ class LoginController extends Controller
     public function logout()
     {
         $user=Auth::user();
-        if($user){
-          $user->delete();
-        }
-        Auth::logout();
-         return redirect()->route('login');
+        // Log the user out
+         $user->delete();
+         Auth::logout();
+        return redirect()->route('login')->with('status', 'You have been logged out successfully.');
     }
 }

@@ -10,7 +10,10 @@
         <div class="col-md-4 mb-4">
             <div class="quiz-card">
                 <h3>{{ $qui->QuizName }}</h3>
-                <a href="#" class="btn btn-primary">Start Quiz</a>
+                <form action="{{route('all',$qui->id)}}" method="POST">
+                    @csrf
+                 <button type="submit">View Quiz</button>
+                </form>
             </div>
         </div>
         @endforeach
